@@ -24,6 +24,11 @@ class MenuDashPage extends GetView<MenuDashController> {
                 ),
                 elevation: 0,
                 backgroundColor: Colors.blue.shade900,
+                actions: [
+                  IconButton(onPressed: (){
+                    controler.appExit();
+                  }, icon: Icon(Icons.exit_to_app_sharp))
+                ],
 
                 // bottom: TabBar(
                 //   controller: controler.tabController,
@@ -104,6 +109,47 @@ class MenuDashPage extends GetView<MenuDashController> {
                                     ),
                                   ),
                                 ),
+                                Card(
+                                  elevation: 5,
+                                  child: Container(
+                                    height: height/17.5,
+                                    width: width/1.2,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: height/16.6,
+                                          width: width/8,
+                                          color: Colors.black12,
+                                          child: Icon(Icons.location_on_rounded,size: height/35,color: Colors.pinkAccent,),
+                                        ),
+                                        InkWell(
+                                          onTap: (){
+                                            controler.getdashboardNavigation(15);
+                                          },
+                                          child: Container(
+                                            height: height/16.9,
+                                            width: width/1.8,
+                                            alignment: Alignment.centerLeft,
+                                            margin: EdgeInsets.only(left: width/50),
+                                            child: Text("Attendance Reports",style: TextStyle(fontSize: height/50),),
+                                            //color: Colors.red,
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: (){
+                                            controler.getdashboardNavigation(15);
+                                          },
+                                          child: Container(
+                                            height: height/16.6,
+                                            width: width/7.7,
+                                            color: Colors.black26,
+                                            child: Icon(Icons.folder,size: height/35,),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                                 // SizedBox(height: height/90,),
                                 // Card(
                                 //   elevation: 5,
@@ -147,7 +193,7 @@ class MenuDashPage extends GetView<MenuDashController> {
                                 //   ),
                                 // ),
 
-                                SizedBox(height: height/90,),
+                               /* SizedBox(height: height/90,),
                                 Card(
                                   elevation: 5,
                                   child: Container(
@@ -476,7 +522,7 @@ class MenuDashPage extends GetView<MenuDashController> {
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
                                 // SizedBox(height: height/90,),
                                 // Card(
                                 //   elevation: 5,

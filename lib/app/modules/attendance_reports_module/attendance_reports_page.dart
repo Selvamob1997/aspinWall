@@ -33,7 +33,20 @@ class AttendanceReportsPage extends GetView<AttendanceReportsController> {
                   columnSpacing: 20.0,
                   headingRowColor:
                   MaterialStateProperty.all(Colors.blue),
+                  border: TableBorder.all(color: Colors.black54),
                   columns: <DataColumn>[
+                    DataColumn(
+                      label: Text(
+                        'S.No',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text(
+                        'Attendance Date',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                     DataColumn(
                       label: Text(
                         'From Place',
@@ -70,17 +83,20 @@ class AttendanceReportsPage extends GetView<AttendanceReportsController> {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    DataColumn(
-                      label: Text(
-                        'DocDate',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+
 
                   ],
                   rows: controler.secScreenData.map((list) =>
                       DataRow(
                         cells: [
+                          DataCell(
+                              Text(
+                                  (controler.secScreenData.indexOf(list)+1).toString(),
+                                  textAlign:TextAlign.start),
+                          ),
+                          DataCell(Text(list.docDate.toString(),
+                              textAlign:
+                              TextAlign.start)),
                           DataCell(Text(
                               list.fromPlace.toString(),
                               textAlign: TextAlign.center)),
@@ -100,9 +116,7 @@ class AttendanceReportsPage extends GetView<AttendanceReportsController> {
                           DataCell(Text(
                               list.finalStatus.toString(),
                               textAlign: TextAlign.center)),
-                          DataCell(Text(list.docDate.toString(),
-                              textAlign:
-                              TextAlign.start)),
+
                         ]),
                   )
                       .toList(),

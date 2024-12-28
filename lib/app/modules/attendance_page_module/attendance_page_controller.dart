@@ -7,10 +7,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
-
 import 'package:location/location.dart' as loc;
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../data/repository/_allAPIList.dart';
 import '../../utils/Utilites.dart';
 
@@ -172,6 +170,8 @@ class AttendancePageController extends GetxController{
   }
 
   startattendance(){
+    getintime = DateFormat("hh:mm:ss a").format(DateTime.now());
+    update();
     Allapi.postattendance(true,//isloading,
       1,// formid,
       sessionName,//name,
@@ -216,6 +216,8 @@ class AttendancePageController extends GetxController{
   }
 
   stopattendance(){
+    getintime = DateFormat("hh:mm:ss a").format(DateTime.now());
+    update();
     Allapi.postattendance(true,//isloading,
       2,// formid,
       sessionName,//name,

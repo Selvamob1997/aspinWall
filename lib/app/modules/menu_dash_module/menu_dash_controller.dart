@@ -121,5 +121,9 @@ class MenuDashController extends GetxController{
 
   }
 
+  void appExit() {
+    RouteManageMent.goToLogin();
+  }
+
 
 }
